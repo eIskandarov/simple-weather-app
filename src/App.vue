@@ -1,5 +1,25 @@
-<script setup></script>
+<script setup>
+import CitySelect from "./components/CitySelect.vue";
+import Stat from "./components/Stat.vue";
 
-<template></template>
+const data = {
+  label: "Влажность",
+  stat: "90%",
+};
+</script>
 
-<style scoped></style>
+<template>
+  <main class="main">
+    <Stat v-bind="data" />
+    <Stat label="Осадки" stat="0%" />
+    <CitySelect @select-city="getCity" />
+  </main>
+</template>
+
+<style scoped>
+.main {
+  background-color: var(--color-bg-main);
+  padding: 60px 50px;
+  border-radius: 25px;
+}
+</style>
