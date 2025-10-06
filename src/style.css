@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 @font-face {
   font-family: "Montserrat";
   src: url("./fonts/Montserrat-Thin.woff2");
@@ -8,11 +12,14 @@
 
 :root {
   --font-family-base: "Montserrat, sans-serif";
+  --default-border-radius: 10px;
   --color-primary: #ffff;
   --color-primary-inverted: #0000;
   --color-bg: #343d4b;
   --color-card-bg: #272e37;
   --color-bg-main: #222831;
+  --color-text-placeholder: #3f4958;
+
   --gradient: linear-gradient(
     90deg,
     rgb(41 194 209 / 90%),
@@ -39,6 +46,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-button {
+button,
+input {
   font-family: inherit;
+  height: 53px;
 }
