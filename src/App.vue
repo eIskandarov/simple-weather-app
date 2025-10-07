@@ -20,10 +20,11 @@ onMounted(() => {
 });
 
 async function getCity(city) {
+  const apiKey = import.meta.env.VITE_API_KEY;
   const params = new URLSearchParams({
     q: city,
     lang: "ru",
-    key: "a8ab481e6f044e13963192750250610",
+    key: `${apiKey}`,
     days: 4,
   });
 
