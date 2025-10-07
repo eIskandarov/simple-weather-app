@@ -49,5 +49,5 @@ body {
 button,
 input {
   font-family: inherit;
-  height: 53px;
+  /* height: 53px; */
 }
