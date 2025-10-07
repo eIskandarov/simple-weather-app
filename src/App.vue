@@ -57,7 +57,8 @@ async function getCity(city) {
 </script>
 
 <template>
-  <main>
+  <main class="main">
+    <div class="left-panel"></div>
     <div class="right-panel">
       <Error :error="errorDisplay" />
       <div class="stat-data">
@@ -92,10 +93,23 @@ async function getCity(city) {
 </template>
 
 <style scoped>
+.main {
+  display: flex;
+  align-items: center;
+}
+
+.left-panel {
+  width: 500px;
+  height: 700px;
+  border-radius: 30px;
+  background: url("./assets/images/background.jpg") no-repeat -299px -267px;
+}
+
 .right-panel {
   background-color: var(--color-bg-main);
   padding: 60px 50px;
   border-radius: 25px;
+  max-height: 650px;
 }
 
 .stat-data {
