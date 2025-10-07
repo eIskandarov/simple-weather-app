@@ -5,7 +5,7 @@ import IconLocation from "./icons/IconLocation.vue";
 import Input from "./Input.vue";
 
 const emit = defineEmits({
-  selectCity(payload) {
+  "select-city"(payload) {
     return payload ? true : false;
   },
 });
@@ -14,12 +14,13 @@ let isEdited = ref(false);
 let city = ref("Moscow");
 
 onMounted(() => {
-  emit("selectCity", city.value);
+  console.log("MOUNTED");
+  emit("select-city", city.value);
 });
 
 function select() {
   isEdited.value = false;
-  emit("selectCity", city.value);
+  emit("select-city", city.value);
 }
 
 function edit() {

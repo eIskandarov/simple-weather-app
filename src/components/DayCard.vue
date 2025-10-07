@@ -20,7 +20,7 @@ function getIconColor(isActive) {
   <button type="button" class="day-card" :class="{ active: isActive }">
     <IconSun v-if="weatherCode <= 1003" :color="getIconColor(isActive)" />
     <IconRain
-      v-if="weatherCode >= 1006 && weatherCode <= 1063"
+      v-if="weatherCode >= 1006 && weatherCode < 1063"
       :color="getIconColor(isActive)"
     />
     <IconCloud v-if="weatherCode >= 1063" :color="getIconColor(isActive)" />
