@@ -1,7 +1,5 @@
 <script setup>
-import IconRain from "./icons/weather/IconRain.vue";
-import IconSun from "./icons/weather/IconSun.vue";
-import IconCloud from "./icons/weather/IconCloud.vue";
+import WeatherIcon from "./WeatherIcon.vue";
 
 const TEMPERATURE_MEASURE = "℃";
 const { weatherCode, temperature, date } = defineProps({
@@ -18,12 +16,7 @@ function getIconColor(isActive) {
 
 <template>
   <button type="button" class="day-card" :class="{ active: isActive }">
-    <IconSun v-if="weatherCode <= 1003" :color="getIconColor(isActive)" />
-    <IconRain
-      v-if="weatherCode >= 1006 && weatherCode < 1063"
-      :color="getIconColor(isActive)"
-    />
-    <IconCloud v-if="weatherCode >= 1063" :color="getIconColor(isActive)" />
+    <WeatherIcon :color="getIconColor(isActive)" :weather-code="weatherCode" />
     <div class="day-card__day">
       {{ date.toLocaleDateString("ru-RU", { weekday: "short" }) }}
     </div>

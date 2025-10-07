@@ -1,13 +1,14 @@
 <script setup>
 import { onMounted, provide, ref, watch } from "vue";
 import PanelRight from "./components/PanelRight.vue";
+import PanelLeft from "./components/PanelLeft.vue";
 import { API_ENDPOINT, cityProvide } from "./constants";
 
 let data = ref();
 let error = ref();
 let activeIndex = ref(0);
 
-let city = ref("Moscow");
+let city = ref("Москва");
 provide(cityProvide, city);
 
 watch(city, () => {
@@ -43,7 +44,7 @@ async function getCity(city) {
 
 <template>
   <main class="main">
-    <div class="panel-left"></div>
+    <PanelLeft :day-data="data?.forecast.forecastday[activeIndex]" />
     <PanelRight
       :data
       :error
@@ -57,12 +58,5 @@ async function getCity(city) {
 .main {
   display: flex;
   align-items: center;
-}
-
-.panel-left {
-  width: 500px;
-  height: 700px;
-  border-radius: 30px;
-  background: url("./assets/images/background.jpg") no-repeat -299px -267px;
 }
 </style>
