@@ -60,7 +60,7 @@ const errorDisplay = computed(() => {
       </div>
     </div>
 
-    <CitySelect @select-city="(city) => emit('select-city', city)" />
+    <CitySelect />
   </div>
 </template>
 
