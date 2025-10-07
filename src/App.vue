@@ -57,36 +57,42 @@ async function getCity(city) {
 </script>
 
 <template>
-  <main class="main">
-    <Error :error="errorDisplay" />
-    <div class="stat-data">
-      <div v-if="data">
-        <div class="stat-list">
-          <Stat v-for="item in dataModified" v-bind="item" :key="item.label" />
+  <main>
+    <div class="right-panel">
+      <Error :error="errorDisplay" />
+      <div class="stat-data">
+        <div v-if="data">
+          <div class="stat-list">
+            <Stat
+              v-for="item in dataModified"
+              v-bind="item"
+              :key="item.label"
+            />
+          </div>
+          <div class="day-card-list">
+            <DayCard
+              v-for="(item, index) in data.forecast.forecastday"
+              :key="item.date"
+              :is-active="activeIndex === index"
+              :weather-code="item.day.condition.code"
+              :temperature="item.day.avgtemp_c"
+              :date="new Date(item.date)"
+              @click="
+                () => {
+                  activeIndex = index;
+                }
+              "
+            />
+          </div>
         </div>
-        <div class="day-card-list">
-          <DayCard
-            v-for="(item, index) in data.forecast.forecastday"
-            :key="item.date"
-            :is-active="activeIndex === index"
-            :weather-code="item.day.condition.code"
-            :temperature="item.day.avgtemp_c"
-            :date="new Date(item.date)"
-            @click="
-              () => {
-                activeIndex = index;
-              }
-            "
-          />
-        </div>
+        <CitySelect @select-city="getCity" />
       </div>
-      <CitySelect @select-city="getCity" />
     </div>
   </main>
 </template>
 
 <style scoped>
-.main {
+.right-panel {
   background-color: var(--color-bg-main);
   padding: 60px 50px;
   border-radius: 25px;
