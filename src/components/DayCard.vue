@@ -1,6 +1,7 @@
 <script setup>
 import IconRain from "./icons/weather/IconRain.vue";
 import IconSun from "./icons/weather/IconSun.vue";
+import IconCloud from "./icons/weather/IconCloud.vue";
 
 const TEMPERATURE_MEASURE = "℃";
 const { weatherCode, temperature, date } = defineProps({
