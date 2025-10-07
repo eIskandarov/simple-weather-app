@@ -4,6 +4,7 @@ import Error from "./Error.vue";
 import DayCard from "./DayCard.vue";
 import CitySelect from "./CitySelect.vue";
 import Stat from "./Stat.vue";
+import { errorMap } from "../constants";
 
 const emit = defineEmits(["select-index", "select-city"]);
 
@@ -33,7 +34,6 @@ const statData = computed(() => {
   ];
 });
 
-const errorMap = new Map([[1006, "Указанный город не найден"]]);
 const errorDisplay = computed(() => {
   return errorMap.get(error?.error?.code);
 });

@@ -1,15 +1,14 @@
 <script setup>
 import { onMounted, provide, ref, watch } from "vue";
 import PanelRight from "./components/PanelRight.vue";
-
-const API_ENDPOINT = "https://api.weatherapi.com/v1";
+import { API_ENDPOINT, cityProvide } from "./constants";
 
 let data = ref();
 let error = ref();
 let activeIndex = ref(0);
 
 let city = ref("Moscow");
-provide("city", city);
+provide(cityProvide, city);
 
 watch(city, () => {
   getCity(city.value);
